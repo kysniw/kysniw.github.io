@@ -1,0 +1,137 @@
+.section {
+  min-height: 100dvh;
+  /* min-height: 800px; */
+}
+
+.education {
+  position: relative;
+  padding: 5rem 0;
+  /* height: 100%; */
+
+  /* padding-top: 6rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+.education::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3rem;
+  width: 0.4rem;
+  box-shadow: 0 0 1rem #000;
+  background-color: #fff;
+  background: rgb(0, 99, 122);
+}
+
+.educationSpace::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 50%;
+  top: 2rem;
+  transform: translateY(-50%);
+  height: 0.2rem;
+  background-color: rgb(177, 66, 66);
+  z-index: 0;
+}
+
+.educationSpace::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  transform: translate(-50%, -50%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 0.2rem solid rgb(177, 66, 66);
+  /* box-shadow: 0 0 1rem rgb(177, 66, 66); */
+  background: rgb(0, 30, 37);
+}
+
+.educationSpace {
+  position: relative;
+  flex-basis: 12rem;
+  margin-left: 3.1rem;
+}
+
+.educationBar {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgb(0, 54, 66);
+  border-radius: 0.5rem;
+  /* border: 0.1rem solid rgb(177, 66, 66); */
+  z-index: 2;
+}
+
+.barHeader {
+  background-color: rgb(177, 66, 66);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.barHeader > h1 {
+  font-size: 1.8rem;
+}
+
+.barBody {
+  font-size: large;
+}
+
+@media (min-width: 768px) {
+  .section {
+    height: 100dvh;
+  }
+
+  .education::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .education {
+    height: 100%;
+    align-items: end;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .educationSpace {
+    margin: 0;
+    width: 50%;
+    flex-basis: 14rem;
+    margin: -2rem 0;
+  }
+
+  .educationSpace:nth-of-type(2) {
+    align-self: start;
+  }
+
+  .educationSpace:nth-of-type(2)::before {
+    left: 50%;
+    right: 0;
+  }
+
+  .educationSpace:nth-of-type(2)::after {
+    right: 0;
+    left: auto;
+    transform: translate(50%, -50%);
+  }
+
+  .educationBar {
+    max-width: 30rem;
+  }
+
+  .barHeader {
+    height: 4rem;
+  }
+}

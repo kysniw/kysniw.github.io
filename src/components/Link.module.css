@@ -1,0 +1,31 @@
+.link {
+  display: block;
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid transparent;
+  color: #fff;
+  font-size: larger;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.active {
+  color: #b14242;
+}
+
+@media (min-width: 768px) {
+  .link:hover {
+    color: #b14242;
+  }
+
+  .active {
+    border-color: #b14242;
+    color: #fff;
+  }
+
+  .active:hover {
+    color: #fff;
+  }
+}

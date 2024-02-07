@@ -11,7 +11,7 @@
 }
 
 .form {
-  max-width: 70rem;
+  max-width: 50rem;
   margin: 0 auto;
   text-align: center;
 }
@@ -51,7 +51,7 @@
   text-decoration: none;
   background-color: rgb(177, 66, 66);
   color: rgb(0, 30, 37);
-  box-shadow: 0 0 1.2rem rgb(177, 66, 66);
+  box-shadow: 0 0 0.6rem rgb(177, 66, 66);
   font-size: larger;
   font-weight: 700;
   padding: 0.7rem 1.5rem;

@@ -12,10 +12,11 @@ const Education = () => {
               <h1>2022 - 2023</h1>
             </div>
             <div className={styles.barBody}>
-              <p>Post-graduate studies with Angular and React.</p>
-              <p>
-                <FaLocationPin />
-                WSB Merito in Łódź
+              <p className={styles.headText}>
+                Post-graduate studies with Angular and React.
+              </p>
+              <p className={styles.barLocation}>
+                <FaLocationPin /> WSB Merito in Łódź
               </p>
             </div>
           </div>
@@ -26,14 +27,15 @@ const Education = () => {
               <h1>2021 - 2022</h1>
             </div>
             <div className={styles.barBody}>
-              <p>Master of Engineering degree in Applied Computer Science</p>
-              <p>
+              <p className={styles.headText}>
+                Master of Engineering degree in Applied Computer Science
+              </p>
+              <p className={styles.centerText}>
                 Second-level studies in the discipline of Information And
                 Communication Technology
               </p>
-              <p>
-                <FaLocationPin />
-                Politechnika Wrocławska in Wrocław
+              <p className={styles.barLocation}>
+                <FaLocationPin /> Politechnika Wrocławska in Wrocław
               </p>
             </div>
           </div>
@@ -44,14 +46,15 @@ const Education = () => {
               <h1>2017 - 2021</h1>
             </div>
             <div className={styles.barBody}>
-              <p>Engineering degree in Computer Science.</p>
-              <p>
+              <p className={styles.headText}>
+                Engineering degree in Computer Science.
+              </p>
+              <p className={styles.centerText}>
                 First-level studies in the discipline of Information And
                 Communication Technology
               </p>
-              <p>
-                <FaLocationPin />
-                Politechnika Lubelska in Lublin
+              <p className={styles.barLocation}>
+                <FaLocationPin /> Politechnika Lubelska in Lublin
               </p>
             </div>
           </div>

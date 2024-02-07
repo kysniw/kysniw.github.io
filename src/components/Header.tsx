@@ -15,6 +15,8 @@ const Header = () => {
     <Link key={link.href} link={link} />
   ));
 
+  const mobileLinks = links.map((link) => <Link key={link.href} link={link} />);
+
   const handleWindowScroll = () => {
     if (activeMenu) {
       setActiveMenu(false);
@@ -28,7 +30,6 @@ const Header = () => {
       !refBars.current?.contains(e.target as Node)
     ) {
       setActiveMenu(false);
-      e.stopPropagation();
     }
   };
 
@@ -55,11 +56,13 @@ const Header = () => {
       <div ref={refBars} className={styles.bars} onClick={handleBarsClick}>
         <FaBars />
       </div>
-      {activeMenu && (
-        <div ref={refMenu} className={styles.mobileMenu}>
-          {renderedLinks}
-        </div>
-      )}
+
+      <div
+        ref={refMenu}
+        className={`${styles.mobileMenu} ${activeMenu && styles.show}`}
+      >
+        {mobileLinks}
+      </div>
     </header>
   );
 };

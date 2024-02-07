@@ -9,3 +9,10 @@
   font-size: 3rem;
   margin-bottom: 3rem;
 }
+
+.container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 30rem));
+  gap: 1rem;
+}

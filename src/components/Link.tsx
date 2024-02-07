@@ -1,14 +1,7 @@
 import { Link as ScrollLink } from "react-scroll";
 
 import styles from "./Link.module.css";
-
-type LinkProps = {
-  href: string;
-  label: {
-    pl: string;
-    en: string;
-  };
-};
+import { LinkProps } from "../lib/types";
 
 const Link = ({ link }: { link: LinkProps }) => {
   return (

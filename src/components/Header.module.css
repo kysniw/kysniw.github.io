@@ -1,3 +1,15 @@
+.header::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  -wbkit-backdrop-filter: blur(0.3rem);
+  backdrop-filter: blur(0.3rem);
+  z-index: -1;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -6,7 +18,6 @@
   height: 5rem;
   padding: 0 9%;
   background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(0.3rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,7 +47,7 @@
 }
 
 .logoLink:hover .logoDot {
-  color: #b14242;
+  color: rgb(177, 66, 66);
 }
 
 .bars {
@@ -56,13 +67,30 @@
   gap: 1rem;
   align-items: center;
   transform: translateX(1000px);
-  opacity: 0;
   background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(1rem);
-  animation: slideFromRight 0.5s forwards;
+  /* opacity: 0; */
+  transition: 0.5s;
 }
 
-@media (min-width: 768px) {
+.show {
+  /* opacity: 1; */
+  transform: translateX(0);
+}
+
+.mobileMenu::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 0.5rem;
+  -wbkit-backdrop-filter: blur(0.3rem);
+  backdrop-filter: blur(0.3rem);
+  z-index: -1;
+}
+
+@media (min-width: 992px) {
   .bars {
     display: none;
   }
@@ -73,16 +101,5 @@
 
   .nav {
     display: flex;
-  }
-}
-
-@keyframes slideFromRight {
-  0% {
-    opacity: 0;
-    transform: translateX(1000px);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0);
   }
 }

@@ -39,7 +39,12 @@ const Home = () => {
           <h1 className={styles.title}>Hello! I'm</h1>
           <h3 className={styles.fullName}>Jakub Winsyk</h3>
           <h2 className={styles.profession}>Fullstack Developer</h2>
-          <a className={styles.download} href="/">
+          <a
+            className={styles.download}
+            href="./jw_cv_en.pdf"
+            rel="noreferrer"
+            target="_blank"
+          >
             Download CV
           </a>
           <div className={styles.socialMedia}>
@@ -67,7 +72,12 @@ const Home = () => {
             >
               <FaGithub />
             </a>
-            <a href="/" className={`${styles.mediaIcon} ${styles.linkedIcon}`}>
+            <a
+              href="https://www.linkedin.com/in/jakub-winsyk-30b2a5270"
+              rel="noreferrer"
+              target="_blank"
+              className={`${styles.mediaIcon} ${styles.linkedIcon}`}
+            >
               <FaLinkedinIn />
             </a>
           </div>

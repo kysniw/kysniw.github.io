@@ -6,6 +6,7 @@ import { FaXmark } from "react-icons/fa6";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
+
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -16,6 +17,24 @@ const Contact = () => {
     message: string | null;
     error: string | null;
   }>({ message: null, error: null });
+
+  const resetFormData = () => {
+    setFullName("");
+    setEmail("");
+    setPhoneNumber("");
+    setSubject("");
+    setMessage("");
+  };
+
+  const statusTimer = () => {
+    setTimeout(() => {
+      setStatus({ message: null, error: null });
+    }, 5000);
+  };
+
+  const handleCloseStatus = () => {
+    setStatus({ message: null, error: null });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,36 +52,25 @@ const Contact = () => {
         }
       )
         .then(() => {
-          setFullName("");
-          setEmail("");
-          setPhoneNumber("");
-          setSubject("");
-          setMessage("");
+          resetFormData();
           setStatus({
             message: "The message has been sent succesfully!",
             error: null,
           });
+          statusTimer();
           setIsLoading(false);
         })
         .catch((error) => {
-          setFullName("");
-          setEmail("");
-          setPhoneNumber("");
-          setSubject("");
-          setMessage("");
+          resetFormData();
           console.log(error);
           setStatus({
             message: null,
             error: "Something went wrong! Try again later.",
           });
+          statusTimer();
           setIsLoading(false);
         });
-      // console.log(res);
     }
-  };
-
-  const handleCloseStatus = () => {
-    setStatus({ message: null, error: null });
   };
 
   return (

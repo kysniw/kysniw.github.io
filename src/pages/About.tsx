@@ -22,7 +22,7 @@ const About = () => {
 
       <img
         className={styles.img}
-        src="/about_sm.png"
+        src="./about_sm.png"
         alt="My portrait in library"
         width={605}
         height={807}

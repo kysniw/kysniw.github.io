@@ -22,7 +22,7 @@ const Home = () => {
         <div className={styles.imgContainer}>
           <img
             className={styles.img}
-            src="/portfolio_1_sm.png"
+            src="./portfolio_1_sm.png"
             width={600}
             height={1010}
             alt="My main portrait"

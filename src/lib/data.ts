@@ -32,7 +32,7 @@ export const links = [
 export const projects = [
   {
     name: "JobsPortal",
-    image: "/projects/jobsportal.png",
+    image: "./projects/jobsportal.png",
     description:
       "This is project created in NextJS with TypeScript, TailwindCSS and " +
       "NextUI on frontend and django, django rest framework, swagger on " +
@@ -50,7 +50,7 @@ export const projects = [
   },
   {
     name: "ToDoApp",
-    image: "/projects/todoapp.png",
+    image: "./projects/todoapp.png",
     description:
       "This is project created in ReactJS with TypeScript, CSS and fake REST API json-server",
     stack: ["reactjs", "typescript", "css"],

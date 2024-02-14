@@ -127,8 +127,9 @@ const Contact = () => {
           name="message"
           className={styles.textarea}
           cols={30}
-          rows={10}
+          rows={8}
           minLength={20}
+          maxLength={500}
           placeholder="Your Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}

@@ -49,6 +49,17 @@ export const projects = [
     demo: null,
   },
   {
+    name: "WHERE2B",
+    image: "./projects/where2b.png",
+    description:
+      "Project created to credit course during stuides. Worked on frontend with ReactNative. " +
+      "App for restaurant owner and their clients to find favourite food and book a seat.",
+    stack: ["reactjs", "reactnative", "typescript", "django", "swagger"],
+    github:
+      "https://github.com/kysniw/WHERE2B/tree/restaurants-edit-frontend/client",
+    demo: null,
+  },
+  {
     name: "ToDoApp",
     image: "./projects/todoapp.png",
     description:

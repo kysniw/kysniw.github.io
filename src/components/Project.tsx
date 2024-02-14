@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Project.module.css";
-import { FaPlay } from "react-icons/fa6";
+import { FaMobile, FaPlay } from "react-icons/fa6";
 import {
   SiNextdotjs,
   SiTypescript,
@@ -27,6 +27,7 @@ const Project = ({ project }: { project: ProjectProps }) => {
       <div className={styles.details}>
         <div className={styles.stackIcons}>
           {project.stack.includes("reactjs") && <SiReact />}
+          {project.stack.includes("reactnative") && <FaMobile />}
           {project.stack.includes("nextjs") && <SiNextdotjs />}
           {project.stack.includes("typescript") && <SiTypescript />}
           {project.stack.includes("nextui") && <SiNextui />}

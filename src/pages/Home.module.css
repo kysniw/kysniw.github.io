@@ -49,7 +49,6 @@
   align-items: center;
   font-size: 3rem;
   font-weight: 700;
-  cursor: pointer;
 }
 
 .reactIcon {
@@ -62,13 +61,11 @@
 
 .nextIcon {
   color: rgb(0, 0, 0);
-  background: radial-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0));
+  background: radial-gradient(
+    rgb(255, 255, 255) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
   border-radius: 9999px;
-  transition-duration: 0.3s;
-}
-
-.nextIcon:hover {
-  transform: translateY(-0.5rem) scale(1.1);
 }
 
 .tailwindIcon {

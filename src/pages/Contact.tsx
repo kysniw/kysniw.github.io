@@ -1,17 +1,16 @@
 import { Element } from "react-scroll";
 import styles from "./Contact.module.css";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { sendForm } from "@emailjs/browser";
 import { FaXmark } from "react-icons/fa6";
+import { contactData } from "../lib/data";
+import { useLangContext } from "../context/LangContext";
 
 const Contact = () => {
-  const formRef = useRef<HTMLFormElement>(null);
+  const { emptyForm, texts } = contactData;
+  const { lang } = useLangContext();
 
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState(emptyForm);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<{
     message: string | null;
@@ -19,11 +18,17 @@ const Contact = () => {
   }>({ message: null, error: null });
 
   const resetFormData = () => {
-    setFullName("");
-    setEmail("");
-    setPhoneNumber("");
-    setSubject("");
-    setMessage("");
+    setFormData(emptyForm);
+  };
+
+  const handleChangeFormData = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const updatedFormData = {
+      ...formData,
+      [e.target.name]: e.target.value,
+    };
+    setFormData(updatedFormData);
   };
 
   const statusTimer = () => {
@@ -36,55 +41,53 @@ const Contact = () => {
     setStatus({ message: null, error: null });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // alert("Submited");
 
-    if (formRef.current) {
-      setIsLoading(true);
-      sendForm(
-        `${process.env.REACT_APP_SERVICE_ID}`,
-        `${process.env.REACT_APP_TEMPLATE_ID}`,
-        formRef.current,
-        {
-          publicKey: `${process.env.REACT_APP_PUBLIC_KEY}`,
-        }
-      )
-        .then(() => {
-          resetFormData();
-          setStatus({
-            message: "The message has been sent succesfully!",
-            error: null,
-          });
-          statusTimer();
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          resetFormData();
-          console.log(error);
-          setStatus({
-            message: null,
-            error: "Something went wrong! Try again later.",
-          });
-          statusTimer();
-          setIsLoading(false);
+    setIsLoading(true);
+    sendForm(
+      `${process.env.REACT_APP_SERVICE_ID}`,
+      `${process.env.REACT_APP_TEMPLATE_ID}`,
+      e.currentTarget,
+      {
+        publicKey: `${process.env.REACT_APP_PUBLIC_KEY}`,
+      }
+    )
+      .then(() => {
+        resetFormData();
+        setStatus({
+          message: "The message has been sent succesfully!",
+          error: null,
         });
-    }
+        statusTimer();
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        resetFormData();
+        console.log(error);
+        setStatus({
+          message: null,
+          error: "Something went wrong! Try again later.",
+        });
+        statusTimer();
+        setIsLoading(false);
+      });
   };
 
   return (
     <Element name="contact" className={styles.section}>
-      <h1 className={styles.title}>Contact</h1>
-      <form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
+      <h1 className={styles.title}>{texts.title[lang]}</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.inputBox}>
           <input
             className={styles.input}
             type="text"
-            name="full_name"
-            placeholder="Full Name"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
+            name="fullName"
+            placeholder={texts.fullNamePlaceholder[lang]}
+            value={formData.fullName}
+            onChange={handleChangeFormData}
             autoComplete="name"
             required
           />
@@ -92,9 +95,9 @@ const Contact = () => {
             className={styles.input}
             type="email"
             name="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            placeholder={texts.emailPlaceholder[lang]}
+            value={formData.email}
+            onChange={handleChangeFormData}
             autoComplete="email"
             required
           />
@@ -105,10 +108,10 @@ const Contact = () => {
             type="tel"
             minLength={9}
             maxLength={13}
-            name="phone_number"
-            placeholder="Mobile Number"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            name="phoneNumber"
+            placeholder={texts.phoneNumberPlaceholder[lang]}
+            value={formData.phoneNumber}
+            onChange={handleChangeFormData}
             autoComplete="tel"
           />
           <input
@@ -116,9 +119,9 @@ const Contact = () => {
             type="text"
             name="subject"
             minLength={5}
-            placeholder="Email Subject"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
+            placeholder={texts.subjectPlaceholer[lang]}
+            value={formData.subject}
+            onChange={handleChangeFormData}
             autoComplete="off"
             required
           />
@@ -130,27 +133,27 @@ const Contact = () => {
           rows={8}
           minLength={20}
           maxLength={500}
-          placeholder="Your Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          placeholder={texts.messagePlaceholder[lang]}
+          value={formData.message}
+          onChange={handleChangeFormData}
           autoComplete="off"
           required
         ></textarea>
         <input
           className={styles.submit}
           type="submit"
-          value="Send Message"
+          value={texts.sendButton[lang]}
           disabled={isLoading}
         />
         {status.message && (
           <div className={styles.success}>
-            <p>Message sent!</p>
+            <p>{texts.statusSuccess[lang]}</p>
             <FaXmark className={styles.close} onClick={handleCloseStatus} />
           </div>
         )}
         {status.error && (
           <div className={styles.error}>
-            <p>Something went wrong!</p>
+            <p>{texts.statusError[lang]}</p>
             <FaXmark className={styles.close} onClick={handleCloseStatus} />
           </div>
         )}

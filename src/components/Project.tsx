@@ -13,8 +13,11 @@ import {
   SiCss3,
 } from "react-icons/si";
 import { ProjectProps } from "../lib/types";
+import { useLangContext } from "../context/LangContext";
 
 const Project = ({ project }: { project: ProjectProps }) => {
+  const { lang } = useLangContext();
+
   return (
     <div className={styles.project}>
       <img
@@ -37,7 +40,7 @@ const Project = ({ project }: { project: ProjectProps }) => {
           {project.stack.includes("swagger") && <SiSwagger />}
         </div>
         <h2 className={styles.name}>{project.name}</h2>
-        <p className={styles.description}>{project.description}</p>
+        <p className={styles.description}>{project.descriptionText[lang]}</p>
         <div className={styles.links}>
           <a
             className={styles.link}

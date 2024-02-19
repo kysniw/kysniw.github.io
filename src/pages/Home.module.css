@@ -1,5 +1,5 @@
 .section {
-  min-height: 100dvh;
+  min-height: 100vh;
   padding: 7rem 3% 0;
   overflow-y: hidden;
   background: rgb(0, 30, 37);
@@ -32,6 +32,7 @@
   z-index: 0;
   /* mix-blend-mode: luminosity; */
   filter: drop-shadow(0 0 2rem rgb(177, 66, 66));
+  animation: shadowPulse 10s infinite ease;
 }
 
 .imgBar {
@@ -79,6 +80,7 @@
   align-items: center;
   justify-content: flex-start;
   text-align: center;
+  text-shadow: 0 0.2rem 0.4rem black;
   z-index: 1;
 }
 
@@ -86,7 +88,6 @@
   font-size: 1.5rem;
   /* font-size: 2.2rem; */
   color: rgb(255, 255, 255);
-  text-shadow: 0 0.2rem 0.4rem black;
 }
 
 .fullName {
@@ -103,13 +104,14 @@
 
 .download {
   display: block;
+  text-shadow: none;
   text-decoration: none;
   background-color: rgb(177, 66, 66);
   color: rgb(0, 30, 37);
   box-shadow: 0 0 1.2rem rgb(177, 66, 66);
-  font-size: x-large;
+  font-size: 1.5rem;
   font-weight: 700;
-  padding: 1rem 2rem;
+  padding: 0.7rem 1.4rem;
   border-radius: 0.5rem;
   transition-duration: 0.3s;
 }
@@ -200,6 +202,11 @@
     margin-bottom: 7rem;
   }
 
+  .download {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
+
   .socialMedia {
     order: 0;
     margin-top: 4rem;
@@ -216,5 +223,17 @@
 
   .img {
     max-width: auto;
+  }
+}
+
+@keyframes shadowPulse {
+  0% {
+    filter: drop-shadow(0 0 2rem rgb(177, 66, 66));
+  }
+  50% {
+    filter: drop-shadow(0 0 1.5rem rgb(85, 85, 85));
+  }
+  100% {
+    filter: drop-shadow(0 0 2rem rgb(177, 66, 66));
   }
 }

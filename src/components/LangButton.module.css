@@ -1,0 +1,53 @@
+.select {
+  position: relative;
+}
+
+.select button {
+  display: block;
+  width: 100%;
+  color: white;
+  background-color: rgb(177, 66, 55);
+  outline: none;
+  border-radius: 0.5rem;
+  /* font: inherit; */
+  line-height: inherit;
+  font-size: larger;
+  font-weight: 600;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem;
+  gap: 0.2rem;
+  background-color: rgb(177, 66, 55);
+  border-radius: 0.5rem;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.options button {
+  padding: 0.2rem 0;
+  border-radius: 0.3rem;
+  transition-duration: 0.3s;
+}
+
+.options button:hover {
+  background-color: rgb(116, 43, 36);
+}
+
+.optionsOpened {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0);
+}

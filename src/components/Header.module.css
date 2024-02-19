@@ -16,7 +16,7 @@
   left: 0;
   right: 0;
   height: 5rem;
-  padding: 0 9%;
+  padding: 0 4% 0 9%;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-between;
@@ -27,7 +27,6 @@
 
 .nav {
   display: none;
-  gap: 2rem;
 }
 
 .logoLink {
@@ -50,31 +49,36 @@
   color: rgb(177, 66, 66);
 }
 
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .bars {
-  cursor: pointer;
+  line-height: 50%;
   font-size: 1.6rem;
+  cursor: pointer;
 }
 
 .mobileMenu {
   position: fixed;
-  top: 5rem;
-  right: 2rem;
+  top: 5.5rem;
   left: 2rem;
+  right: 2rem;
+  margin: 0 auto;
   padding: 1rem 0;
   border-radius: 0.5rem;
   display: flex;
+  font-size: 1.2rem;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
   transform: translateX(1000px);
   background-color: rgba(0, 0, 0, 0.3);
   /* opacity: 0; */
+  visibility: hidden;
   transition: 0.5s;
-}
-
-.show {
-  /* opacity: 1; */
-  transform: translateX(0);
 }
 
 .mobileMenu::before {
@@ -90,6 +94,11 @@
   z-index: -1;
 }
 
+.show {
+  /* opacity: 1; */
+  visibility: visible;
+  transform: translateX(0);
+}
 @media (min-width: 992px) {
   .bars {
     display: none;
@@ -101,5 +110,7 @@
 
   .nav {
     display: flex;
+    align-items: center;
+    gap: 2rem;
   }
 }

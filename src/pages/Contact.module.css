@@ -76,13 +76,29 @@
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  height: 4rem;
-  max-width: 30rem;
+  min-height: 4rem;
+  max-width: max-content;
+  width: 95%;
   font-size: 1.2rem;
   text-align: center;
   border-radius: 0.5rem;
   gap: 1rem;
-  padding: 0 1rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.success::after,
+.error::after {
+  content: "";
+  position: absolute;
+  height: 0.3rem;
+  width: 100%;
+  bottom: 0;
+  background-color: white;
+  animation-name: statusTimer;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }
 
 .close {
@@ -106,5 +122,14 @@
 @media (min-width: 768px) {
   .input {
     width: 49%;
+  }
+}
+
+@keyframes statusTimer {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }

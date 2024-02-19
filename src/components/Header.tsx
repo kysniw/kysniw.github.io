@@ -4,12 +4,12 @@ import { links } from "../lib/data";
 import Link from "./Link";
 import { Link as ScrollLink } from "react-scroll";
 import { FaBars } from "react-icons/fa6";
+import LangButton from "./LangButton";
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
 
   const refMenu = useRef<HTMLDivElement>(null);
-  const refBars = useRef<HTMLDivElement>(null);
 
   const renderedLinks = links.map((link) => (
     <Link key={link.href} link={link} />
@@ -23,45 +23,44 @@ const Header = () => {
     }
   };
 
-  const handleClickMenuOut = (e: MouseEvent) => {
-    if (!refMenu.current || !refBars.current) return;
-    if (
-      !refMenu.current?.contains(e.target as Node) &&
-      !refBars.current?.contains(e.target as Node)
-    ) {
-      setActiveMenu(false);
-    }
-  };
-
   const handleBarsClick = () => {
     setActiveMenu(!activeMenu);
   };
 
   useEffect(() => {
+    const handleClickMenuOut = (e: PointerEvent) => {
+      const target = e.target as HTMLElement;
+      if (refMenu.current && !refMenu.current.contains(target)) {
+        setActiveMenu(false);
+      }
+    };
     document.addEventListener("scroll", handleWindowScroll, true);
-    document.addEventListener("click", handleClickMenuOut, true);
+    document.addEventListener("pointerdown", handleClickMenuOut, true);
 
     return () => {
       document.removeEventListener("scroll", handleWindowScroll, true);
-      document.removeEventListener("click", handleClickMenuOut, true);
+      document.removeEventListener("pointerdown", handleClickMenuOut, true);
     };
   });
+
+  const classMobileMenu = activeMenu
+    ? `${styles.mobileMenu} ${styles.show}`
+    : `${styles.mobileMenu}`;
 
   return (
     <header className={styles.header}>
       <ScrollLink to="home" smooth className={styles.logoLink}>
         Portfolio<span className={styles.logoDot}>.</span>
       </ScrollLink>
-      <nav className={styles.nav}>{renderedLinks}</nav>
-      <div ref={refBars} className={styles.bars} onClick={handleBarsClick}>
-        <FaBars />
-      </div>
-
-      <div
-        ref={refMenu}
-        className={`${styles.mobileMenu} ${activeMenu && styles.show}`}
-      >
-        {mobileLinks}
+      <div className={styles.menu}>
+        <nav className={styles.nav}>{renderedLinks}</nav>
+        <LangButton />
+        <div ref={refMenu}>
+          <div className={styles.bars} onPointerUp={handleBarsClick}>
+            <FaBars />
+          </div>
+          <div className={classMobileMenu}>{mobileLinks}</div>
+        </div>
       </div>
     </header>
   );

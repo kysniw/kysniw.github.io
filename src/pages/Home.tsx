@@ -14,15 +14,30 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
+import { useLangContext } from "../context/LangContext";
+
+const text = {
+  title: {
+    pl: "Cześć! Jestem",
+    en: "Hello! I'm",
+  },
+  download: {
+    pl: "Pobierz CV",
+    en: "Download CV",
+  },
+};
 
 const Home = () => {
+  // console.log(navigator.language);
+  const { lang } = useLangContext();
+
   return (
     <Element name="home" className={styles.section}>
       <div className={styles.home}>
         <div className={styles.imgContainer}>
           <img
             className={styles.img}
-            src="./portfolio_1_sm.png"
+            src="./portfolio_2_sm.webp"
             width={600}
             height={1010}
             alt="My main portrait"
@@ -36,7 +51,7 @@ const Home = () => {
           </div>
         </div>
         <div className={styles.textContainer}>
-          <h1 className={styles.title}>Hello! I'm</h1>
+          <h1 className={styles.title}>{text.title[lang]}</h1>
           <h3 className={styles.fullName}>Jakub Winsyk</h3>
           <h2 className={styles.profession}>Fullstack Developer</h2>
           <a
@@ -45,7 +60,7 @@ const Home = () => {
             rel="noreferrer"
             target="_blank"
           >
-            Download CV
+            {text.download[lang]}
           </a>
           <div className={styles.socialMedia}>
             <a

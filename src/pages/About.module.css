@@ -22,6 +22,9 @@
 
 .text {
   font-size: 1.2rem;
+  text-wrap: pretty;
+  /* white-space: normal; */
+  white-space: pre-wrap;
   text-align: justify;
 }
 

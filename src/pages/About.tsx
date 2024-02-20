@@ -7,20 +7,13 @@ const About = () => {
   const { lang } = useLangContext();
   const { texts } = aboutData;
 
-  const descFormatted = texts.desc[lang].split("\n").map((text, index) => (
-    <span key={index}>
-      {text}
-      <br />
-    </span>
-  ));
-
   return (
     <Element name="about" className={styles.section}>
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{texts.title[lang]}</h1>
         <p className={styles.text}>
-          {descFormatted}
-          {/* Hi! I'm a graduate of Computer Science at Wroclaw University of
+          {texts.desc[lang]}
+          {/* Hi! I'm a graduate&nbsp;of Computer Science at Wroclaw University of
           Technology. During second-level studies, I realized that ReactJS is
           the library which I'm interested in. On the other side my friends
           introduced me to the world of python. Then I wrote my master thesis

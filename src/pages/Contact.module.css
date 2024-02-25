@@ -67,6 +67,23 @@
   box-shadow: none;
 }
 
+.submit:disabled {
+  background-color: rgb(151, 57, 57);
+  box-shadow: none;
+  cursor: default;
+}
+
+.loadingIcon {
+  display: block;
+  /* font-size: larger; */
+  width: 1.5rem;
+  height: 1.5rem;
+  animation-name: spinner;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
 .success,
 .error {
   display: flex;
@@ -131,5 +148,14 @@
   }
   100% {
     transform: translateX(100%);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
   }
 }

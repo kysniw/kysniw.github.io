@@ -2,7 +2,7 @@ import { Element } from "react-scroll";
 import styles from "./Contact.module.css";
 import React, { useState } from "react";
 import { sendForm } from "@emailjs/browser";
-import { FaXmark } from "react-icons/fa6";
+import { FaCircleNotch, FaXmark } from "react-icons/fa6";
 import { contactData } from "../lib/data";
 import { useLangContext } from "../context/LangContext";
 
@@ -11,6 +11,7 @@ const Contact = () => {
   const { lang } = useLangContext();
 
   const [formData, setFormData] = useState(emptyForm);
+  const [formDataError, setFormDataError] = useState(emptyForm);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<{
     message: string | null;
@@ -24,11 +25,30 @@ const Contact = () => {
   const handleChangeFormData = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    validateData(e.target);
+
     const updatedFormData = {
       ...formData,
       [e.target.name]: e.target.value,
     };
     setFormData(updatedFormData);
+  };
+
+  const validateData = (
+    data: EventTarget & (HTMLInputElement | HTMLTextAreaElement)
+  ) => {
+    switch (data.name) {
+      case "email":
+        if (!data.value.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+          setFormDataError({ ...formDataError, [data.name]: data.value });
+        } else {
+          setFormDataError({ ...formDataError, [data.name]: "" });
+        }
+        break;
+
+      default:
+        break;
+    }
   };
 
   const statusTimer = () => {
@@ -89,6 +109,7 @@ const Contact = () => {
             value={formData.fullName}
             onChange={handleChangeFormData}
             autoComplete="name"
+            disabled={isLoading}
             required
           />
           <input
@@ -99,8 +120,10 @@ const Contact = () => {
             value={formData.email}
             onChange={handleChangeFormData}
             autoComplete="email"
+            disabled={isLoading}
             required
           />
+          {formDataError.email && <p>Please fill correct mail!</p>}
         </div>
         <div className={styles.inputBox}>
           <input
@@ -113,6 +136,7 @@ const Contact = () => {
             value={formData.phoneNumber}
             onChange={handleChangeFormData}
             autoComplete="tel"
+            disabled={isLoading}
           />
           <input
             className={styles.input}
@@ -123,6 +147,7 @@ const Contact = () => {
             value={formData.subject}
             onChange={handleChangeFormData}
             autoComplete="off"
+            disabled={isLoading}
             required
           />
         </div>
@@ -137,14 +162,20 @@ const Contact = () => {
           value={formData.message}
           onChange={handleChangeFormData}
           autoComplete="off"
+          disabled={isLoading}
           required
         ></textarea>
-        <input
+        <button
           className={styles.submit}
           type="submit"
-          value={texts.sendButton[lang]}
-          disabled={isLoading}
-        />
+          disabled={isLoading || formDataError !== emptyForm}
+        >
+          {isLoading ? (
+            <FaCircleNotch className={styles.loadingIcon} />
+          ) : (
+            texts.sendButton[lang]
+          )}
+        </button>
         {status.message && (
           <div className={styles.success}>
             <p>{texts.statusSuccess[lang]}</p>

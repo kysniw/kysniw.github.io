@@ -1,0 +1,43 @@
+.inputDiv {
+  width: 100%;
+}
+
+.input,
+.textarea {
+  display: block;
+  background-color: rgb(0, 54, 66);
+  width: 100%;
+  color: rgb(255, 255, 255);
+  font-size: medium;
+  font-weight: normal;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid transparent;
+  margin: 0.3rem 0;
+  outline: none;
+}
+.textarea {
+  resize: none;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: rgb(255, 255, 255);
+  /* border-color: rgb(177, 66, 66); */
+}
+
+.fieldError,
+.fieldError:focus {
+  border-color: red;
+}
+
+.input + p,
+.textarea + p {
+  color: red;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .inputDiv {
+    width: 49%;
+  }
+}

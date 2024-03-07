@@ -16,6 +16,10 @@
   text-align: center;
 }
 
+.inputDiv {
+  width: 100%;
+}
+
 .input,
 .textarea {
   display: block;
@@ -43,7 +47,19 @@
 
 .input:focus,
 .textarea:focus {
-  border-color: rgb(177, 66, 66);
+  border-color: rgb(255, 255, 255);
+  /* border-color: rgb(177, 66, 66); */
+}
+
+.fieldError,
+.fieldError:focus {
+  border-color: red;
+}
+
+.input + p,
+.textarea + p {
+  color: red;
+  text-align: left;
 }
 
 .submit {
@@ -137,7 +153,7 @@
 }
 
 @media (min-width: 768px) {
-  .input {
+  .inputDiv {
     width: 49%;
   }
 }

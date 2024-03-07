@@ -23,3 +23,18 @@ export type EducationBarProps = {
   centerText?: Lang;
   locationText: Lang;
 };
+
+export type FormDataElements =
+  | "fullName"
+  | "email"
+  | "phoneNumber"
+  | "subject"
+  | "message";
+
+export interface FormDataProps {
+  fullName: string;
+  email: string;
+  phoneNumber?: string;
+  subject: string;
+  message: string;
+}

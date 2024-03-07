@@ -158,38 +158,34 @@ export const educationBars = [
 ];
 
 export const contactData = {
-  emptyForm: {
-    fullName: "",
-    email: "",
-    phoneNumber: "",
-    subject: "",
-    message: "",
-  },
   texts: {
     title: {
       pl: "Kontakt",
       en: "Contact",
     },
-    fullNamePlaceholder: {
-      pl: "Imię i nazwisko",
-      en: "Full Name",
+    placeholder: {
+      fullName: {
+        pl: "Imię i nazwisko",
+        en: "Full Name",
+      },
+      email: {
+        pl: "Adres email",
+        en: "Email Address",
+      },
+      phoneNumber: {
+        pl: "Numer telefonu",
+        en: "Mobile Number",
+      },
+      subject: {
+        pl: "Temat wiadomości",
+        en: "Email Subject",
+      },
+      message: {
+        pl: "Treść wiadomości",
+        en: "Your Message",
+      },
     },
-    emailPlaceholder: {
-      pl: "Adres email",
-      en: "Email Address",
-    },
-    phoneNumberPlaceholder: {
-      pl: "Numer telefonu",
-      en: "Mobile Number",
-    },
-    subjectPlaceholer: {
-      pl: "Temat wiadomości",
-      en: "Email Subject",
-    },
-    messagePlaceholder: {
-      pl: "Treść wiadomości",
-      en: "Your Message",
-    },
+
     sendButton: {
       pl: "Wyślij",
       en: "Send message",
@@ -201,6 +197,56 @@ export const contactData = {
     statusError: {
       pl: "Coś poszło nie tak, spróbuj później.",
       en: "Something went wrong, try again later.",
+    },
+    validationMessages: {
+      required: {
+        pl: "To pole jest wymagane!",
+        en: "This field is required!",
+      },
+      length: {
+        fullName: {
+          pl: "Pole musi mieć więcej niż 4 i\u00A0mniej niż 30 znaków.",
+          en: "Must be longer than 4 and shorter than 30.",
+        },
+        email: {
+          pl: null,
+          en: null,
+        },
+        phoneNumber: {
+          pl: "Pole musi zawierać 9-13 cyfr/znaków.",
+          en: "Field must have between 9 and 13 digits/signs.",
+        },
+        subject: {
+          pl: "Temat musi mieć min. 5 oraz max. 30 liter.",
+          en: "Subject must be from 5 to 30.",
+        },
+        message: {
+          pl: "Wiadomość musi mieć liczbę znaków w\u00A0przedziale 20-400.",
+          en: "Message must be longer than 20 and shorter than 400.",
+        },
+      },
+      pattern: {
+        fullName: {
+          pl: "Uzupełnij 1-4 słowami w\u00A0zakresie 3-16 znaków.",
+          en: "Fill with 1-4 words within 3-16 signs!",
+        },
+        email: {
+          pl: "Zapisz email w\u00A0poprawnej formie.",
+          en: "Please write valid email.",
+        },
+        phoneNumber: {
+          pl: 'Numer musi mieć min. 9 cyfr i może zawierać "+"',
+          en: 'Number must have min 9 digits and accept "+" sign',
+        },
+        subject: {
+          pl: null,
+          en: null,
+        },
+        message: {
+          pl: null,
+          en: null,
+        },
+      },
     },
   },
 };

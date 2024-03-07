@@ -56,7 +56,7 @@ const Home = () => {
           <h2 className={styles.profession}>Fullstack Developer</h2>
           <a
             className={styles.download}
-            href="./jw_cv_en.pdf"
+            href={`./jw_cv_${lang}.pdf`}
             rel="noreferrer"
             target="_blank"
           >

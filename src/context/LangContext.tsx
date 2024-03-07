@@ -13,7 +13,7 @@ const LangContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [lang, setLang] = useState<langProps>(() => {
     if (
       localStorage.getItem("lang") === "pl" ||
-      (navigator.language === "pl" && !localStorage.getItem("lang"))
+      (navigator.language.slice(0, 2) === "pl" && !localStorage.getItem("lang"))
     )
       return "pl";
     return "en";

@@ -88,7 +88,7 @@ const Home = () => {
               <FaGithub />
             </a>
             <a
-              href="https://www.linkedin.com/in/jakub-winsyk-30b2a5270"
+              href="https://www.linkedin.com/in/jakub-winsyk/"
               rel="noreferrer"
               target="_blank"
               className={`${styles.mediaIcon} ${styles.linkedIcon}`}

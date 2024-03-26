@@ -79,7 +79,7 @@ export const projects = [
       "swagger",
     ],
     github: "https://github.com/kysniw/jobsportal-app",
-    demo: null,
+    demo: "https://jobsportal-app.vercel.app/",
   },
   {
     name: "WHERE2B",

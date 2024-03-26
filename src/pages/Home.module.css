@@ -30,7 +30,7 @@
   max-width: 13rem;
   height: auto;
   z-index: 0;
-  /* mix-blend-mode: luminosity; */
+  mix-blend-mode: difference;
   filter: drop-shadow(0 0 2rem rgb(177, 66, 66));
   animation: shadowPulse 10s infinite ease;
 }

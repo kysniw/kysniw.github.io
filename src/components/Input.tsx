@@ -34,7 +34,7 @@ const Input = ({
 
   return (
     <>
-      {!textarea && (
+      {!textarea && fieldName && (
         <div className={styles.inputDiv}>
           <input
             className={`${styles.input} ${
@@ -64,7 +64,7 @@ const Input = ({
           )}
         </div>
       )}
-      {textarea && (
+      {textarea && fieldName && (
         <>
           <textarea
             className={`${styles.textarea} ${

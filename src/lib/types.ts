@@ -24,12 +24,13 @@ export type EducationBarProps = {
   locationText: Lang;
 };
 
-export type FormDataElements =
-  | "fullName"
-  | "email"
-  | "phoneNumber"
-  | "subject"
-  | "message";
+type FormDataElementsType = {
+  [K in keyof FormDataProps]: K;
+};
+
+export type FormDataElements = FormDataElementsType[keyof {
+  [K in keyof FormDataProps]: K;
+}];
 
 export interface FormDataProps {
   fullName: string;

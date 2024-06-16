@@ -1,11 +1,11 @@
 import styles from "./App.module.css";
 
 import Header from "./components/Header";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Education from "./pages/Education";
-import Contact from "./pages/Contact";
-import Projects from "./pages/Projects";
+import Home from "./sections/Home";
+import About from "./sections/About";
+import Education from "./sections/Education";
+import Contact from "./sections/Contact";
+import Projects from "./sections/Projects";
 
 function App() {
   return (

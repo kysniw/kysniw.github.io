@@ -15,6 +15,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { useLangContext } from "../context/LangContext";
+import InView from "../components/InView";
 
 const text = {
   title: {
@@ -35,13 +36,15 @@ const Home = () => {
     <Element name="home" className={styles.section}>
       <div className={styles.home}>
         <div className={styles.imgContainer}>
-          <img
-            className={styles.img}
-            src="./portfolio_2_sm.webp"
-            width={600}
-            height={1010}
-            alt="My main portrait"
-          />
+          <InView className={styles.fromBlur}>
+            <img
+              className={styles.img}
+              src="./portfolio_2_sm.webp"
+              width={600}
+              height={1010}
+              alt="My main portrait"
+            />
+          </InView>
           <div className={styles.imgBar}>
             <SiReact className={styles.reactIcon} />
             <SiTypescript className={styles.tsIcon} />

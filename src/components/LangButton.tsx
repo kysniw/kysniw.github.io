@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./LangButton.module.css";
 import { useLangContext } from "../context/LangContext";
+import { FaChevronDown } from "react-icons/fa6";
 
 const LangButton = () => {
   const { lang, handleChangeLang } = useLangContext();
@@ -33,6 +34,7 @@ const LangButton = () => {
     <div ref={selectRef} className={styles.select}>
       <button onPointerUp={() => setIsOpen(!isOpen)}>
         {lang.toUpperCase()}
+        <FaChevronDown className={styles.chevron} />
       </button>
       <div className={optionsClass}>
         <button

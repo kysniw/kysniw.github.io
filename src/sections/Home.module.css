@@ -31,8 +31,12 @@
   height: auto;
   z-index: 0;
   mix-blend-mode: difference;
-  filter: drop-shadow(0 0 2rem rgb(177, 66, 66));
-  animation: shadowPulse 10s infinite ease;
+  filter: drop-shadow(0 0 2rem rgb(177, 66, 66)) blur(1rem);
+  /* animation: shadowPulse 10s infinite ease; */
+}
+
+.fromBlur {
+  animation: fromBlur 1.5s forwards;
 }
 
 .imgBar {
@@ -226,12 +230,9 @@
   }
 }
 
-@keyframes shadowPulse {
+@keyframes fromBlur {
   0% {
-    filter: drop-shadow(0 0 2rem rgb(177, 66, 66));
-  }
-  50% {
-    filter: drop-shadow(0 0 1.5rem rgb(85, 85, 85));
+    filter: drop-shadow(0 0 2rem rgb(177, 66, 66)) blur(1rem);
   }
   100% {
     filter: drop-shadow(0 0 2rem rgb(177, 66, 66));

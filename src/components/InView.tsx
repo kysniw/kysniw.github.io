@@ -26,11 +26,15 @@ const InView = ({ children, className }: InViewProps) => {
     console.log(isInView);
   });
 
-  return Children.map(children, (child) => {
-    return React.cloneElement(child, {
-      re,
-    });
-  });
+  return (
+    <span ref={ref}>
+      {Children.map(children, (child) => {
+        return React.cloneElement(child, {
+          className: `${child.props.className} ${isInView ? className : ""}`,
+        });
+      })}
+    </span>
+  );
 };
 
 export default InView;

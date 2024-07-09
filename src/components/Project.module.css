@@ -8,6 +8,7 @@
   max-width: 30rem;
   cursor: pointer;
   box-shadow: 0 0 0.3rem rgb(0, 0, 0);
+  opacity: 0;
 }
 
 .img {
@@ -91,4 +92,20 @@
 
 .icon {
   font-size: 1.3rem;
+}
+
+.slideFromBottom {
+  animation: slideFromBottom 0.5s forwards 0.2s;
+}
+
+@keyframes slideFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }

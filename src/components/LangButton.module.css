@@ -10,13 +10,18 @@
   outline: none;
   border-radius: 0.5rem;
   /* font: inherit; */
-  line-height: inherit;
+  /* line-height: inherit; */
   font-size: larger;
   font-weight: 600;
   padding: 0.4rem 0.7rem;
   cursor: pointer;
   border: none;
   margin: 0;
+}
+
+.chevron {
+  margin-left: 0.3rem;
+  width: 1rem;
 }
 
 .options {

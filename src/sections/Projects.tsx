@@ -16,7 +16,7 @@ const Projects = () => {
   const { lang } = useLangContext();
   return (
     <Element name="projects" className={styles.section}>
-      <InView className={styles.inView}>
+      <InView className={styles.slideFromLeft}>
         <h1 className={styles.title}>{text.title[lang]}</h1>
       </InView>
       <div className={styles.container}>

@@ -77,39 +77,57 @@ const Home = () => {
           >
             {text.download[lang]}
           </a>
+
           <div className={styles.socialMedia}>
-            <a
-              href="https://www.facebook.com/kysniw"
-              rel="noreferrer"
-              target="_blank"
-              className={`${styles.mediaIcon} ${styles.fbIcon}`}
+            <InView animationClass={styles.mediaIconAnimation}>
+              <a
+                href="https://www.facebook.com/kysniw"
+                rel="noreferrer"
+                target="_blank"
+                className={`${styles.mediaIcon} ${styles.fbIcon}`}
+              >
+                <FaFacebookF />
+              </a>
+            </InView>
+            <InView
+              style={{ animationDelay: "0.3s" }}
+              animationClass={styles.mediaIconAnimation}
             >
-              <FaFacebookF />
-            </a>
-            <a
-              href="https://www.instagram.com/kysniw"
-              rel="noreferrer"
-              target="_blank"
-              className={`${styles.mediaIcon} ${styles.instaIcon}`}
+              <a
+                href="https://www.instagram.com/kysniw"
+                rel="noreferrer"
+                target="_blank"
+                className={`${styles.mediaIcon} ${styles.instaIcon}`}
+              >
+                <FaInstagram />
+              </a>
+            </InView>
+            <InView
+              style={{ animationDelay: "0.6s" }}
+              animationClass={styles.mediaIconAnimation}
             >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://github.com/kysniw"
-              rel="noreferrer"
-              target="_blank"
-              className={`${styles.mediaIcon} ${styles.githubIcon}`}
+              <a
+                href="https://github.com/kysniw"
+                rel="noreferrer"
+                target="_blank"
+                className={`${styles.mediaIcon} ${styles.githubIcon}`}
+              >
+                <FaGithub />
+              </a>
+            </InView>
+            <InView
+              style={{ animationDelay: "0.9s" }}
+              animationClass={styles.mediaIconAnimation}
             >
-              <FaGithub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jakub-winsyk/"
-              rel="noreferrer"
-              target="_blank"
-              className={`${styles.mediaIcon} ${styles.linkedIcon}`}
-            >
-              <FaLinkedinIn />
-            </a>
+              <a
+                href="https://www.linkedin.com/in/jakub-winsyk/"
+                rel="noreferrer"
+                target="_blank"
+                className={`${styles.mediaIcon} ${styles.linkedIcon}`}
+              >
+                <FaLinkedinIn />
+              </a>
+            </InView>
           </div>
         </div>
       </div>

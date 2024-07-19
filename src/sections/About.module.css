@@ -28,11 +28,19 @@
   text-align: justify;
 }
 
+.text,
+.title {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
 .img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 1rem;
+  opacity: 0;
+  transform: translateX(100px);
 }
 
 .imgContainer {

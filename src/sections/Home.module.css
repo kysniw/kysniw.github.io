@@ -85,7 +85,7 @@
   transform: translateX(10rem) rotateY(70deg) scale(0.6);
   opacity: 0;
   position: absolute;
-  animation-name: slide;
+  animation-name: carousel;
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -157,11 +157,19 @@
   border: 0.2rem solid rgb(177, 66, 66);
   border-radius: 9999px;
   transition-duration: 0.3s;
+  opacity: 0;
 }
 
 .mediaIcon:hover {
   transform: translateY(-0.2rem);
   box-shadow: 0 0.2rem 0.6rem rgb(122, 46, 46);
+}
+
+.mediaIconAnimation {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @media (min-width: 992px) {
@@ -250,7 +258,22 @@
   }
 }
 
-@keyframes slide {
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0);
+  }
+  50% {
+    transform: translateY(10px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes carousel {
   0% {
     transform: translateX(9rem) rotateY(90deg) scale(0.4);
     opacity: 0;
@@ -274,5 +297,27 @@
   100% {
     transform: translateX(-9rem) rotateY(-90deg) scale(0.4);
     opacity: 0;
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

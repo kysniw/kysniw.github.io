@@ -3,10 +3,16 @@ import React, { Children, useEffect, useRef, useState } from "react";
 interface InViewProps {
   children: React.ReactElement<HTMLElement>;
   className?: string;
+  style?: React.CSSProperties;
   animationClass: string;
 }
 
-const InView = ({ children, className, animationClass }: InViewProps) => {
+const InView = ({
+  children,
+  className,
+  animationClass,
+  style,
+}: InViewProps) => {
   const ref = useRef<HTMLSpanElement>(null);
 
   const [isInView, setIsInView] = useState(false);
@@ -31,6 +37,7 @@ const InView = ({ children, className, animationClass }: InViewProps) => {
     <span className={className} ref={ref}>
       {Children.map(children, (child) => {
         return React.cloneElement(child, {
+          style: style as CSSStyleDeclaration,
           className: `${child.props.className} ${
             isInView ? animationClass : ""
           }`,

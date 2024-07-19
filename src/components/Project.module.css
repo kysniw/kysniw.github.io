@@ -95,17 +95,17 @@
 }
 
 .slideFromBottom {
-  animation: slideFromBottom 0.5s forwards 0.2s;
+  animation: scale 0.5s forwards 0.2s;
 }
 
-@keyframes slideFromBottom {
+@keyframes scale {
   0% {
     opacity: 0;
-    transform: translateY(200px);
+    transform: scale(0);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0px);
+    transform: scale(1);
   }
 }

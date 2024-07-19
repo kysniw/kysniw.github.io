@@ -34,7 +34,9 @@ const LangButton = () => {
     <div ref={selectRef} className={styles.select}>
       <button onPointerUp={() => setIsOpen(!isOpen)}>
         {lang.toUpperCase()}
-        <FaChevronDown className={styles.chevron} />
+        <FaChevronDown
+          className={`${styles.chevron} ${isOpen && styles.chevronRotate}`}
+        />
       </button>
       <div className={optionsClass}>
         <button

@@ -3,7 +3,9 @@
 }
 
 .select button {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   width: 100%;
   color: white;
   background-color: rgb(177, 66, 55);
@@ -20,8 +22,13 @@
 }
 
 .chevron {
-  margin-left: 0.3rem;
   width: 1rem;
+  transform: rotateZ(0);
+  transition: 300ms;
+}
+
+.chevronRotate {
+  transform: rotateZ(-180deg);
 }
 
 .options {
@@ -32,16 +39,19 @@
   background-color: rgb(177, 66, 55);
   border-radius: 0.5rem;
   position: absolute;
+  left: 50%;
   top: calc(100% + 0.5rem);
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateX(-50%);
   opacity: 0;
   visibility: hidden;
-  width: 100%;
+  width: 90%;
   transition: 0.3s;
   z-index: -1;
 }
 
 .options button {
+  display: flex;
+  justify-content: center;
   padding: 0.2rem 0;
   border-radius: 0.3rem;
   transition-duration: 0.3s;
@@ -54,5 +64,5 @@
 .optionsOpened {
   opacity: 1;
   visibility: visible;
-  transform: translate(0);
+  transform: translate(0) translateX(-50%);
 }

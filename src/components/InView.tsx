@@ -23,7 +23,7 @@ const InView = ({ children, className }: InViewProps) => {
       observer.observe(ref.current);
     }
 
-    console.log(isInView);
+    // console.log(isInView);
   });
 
   return (

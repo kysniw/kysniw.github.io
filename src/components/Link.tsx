@@ -4,7 +4,13 @@ import styles from "./Link.module.css";
 import { LinkProps } from "../lib/types";
 import { useLangContext } from "../context/LangContext";
 
-const Link = ({ link }: { link: LinkProps }) => {
+interface LinkViewProps {
+  link: LinkProps;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+const Link = ({ link, className, style }: LinkViewProps) => {
   const { lang } = useLangContext();
 
   return (
@@ -12,8 +18,9 @@ const Link = ({ link }: { link: LinkProps }) => {
       to={link.href}
       spy
       smooth
+      style={style}
       activeClass={styles.active}
-      className={styles.link}
+      className={`${styles.link} ${className}`}
     >
       {link.label[lang]}
     </ScrollLink>

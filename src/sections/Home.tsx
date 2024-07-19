@@ -46,11 +46,23 @@ const Home = () => {
             />
           </InView>
           <div className={styles.imgBar}>
-            <SiReact className={styles.reactIcon} />
-            <SiTypescript className={styles.tsIcon} />
-            <SiNextdotjs className={styles.nextIcon} />
-            <SiTailwindcss className={styles.tailwindIcon} />
-            <SiDjango />
+            <SiReact className={`${styles.icon} ${styles.reactIcon}`} />
+            <SiTypescript
+              className={`${styles.icon} ${styles.tsIcon}`}
+              style={{ animationDelay: "2s" }}
+            />
+            <SiNextdotjs
+              className={`${styles.icon} ${styles.nextIcon}`}
+              style={{ animationDelay: "4s" }}
+            />
+            <SiTailwindcss
+              className={`${styles.icon} ${styles.tailwindIcon}`}
+              style={{ animationDelay: "6s" }}
+            />
+            <SiDjango
+              className={styles.icon}
+              style={{ animationDelay: "8s" }}
+            />
           </div>
         </div>
         <div className={styles.textContainer}>

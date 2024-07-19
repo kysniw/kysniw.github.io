@@ -11,8 +11,13 @@ const Header = () => {
 
   const refMenu = useRef<HTMLDivElement>(null);
 
-  const renderedLinks = links.map((link) => (
-    <Link key={link.href} link={link} />
+  const renderedLinks = links.map((link, index) => (
+    <Link
+      key={link.href}
+      link={link}
+      className={styles.linkAnimation}
+      style={{ animationDelay: `${(index + 1) * 0.2}s` }}
+    />
   ));
 
   const mobileLinks = links.map((link) => <Link key={link.href} link={link} />);

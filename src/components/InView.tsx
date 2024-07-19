@@ -2,10 +2,11 @@ import React, { Children, useEffect, useRef, useState } from "react";
 
 interface InViewProps {
   children: React.ReactElement<HTMLElement>;
-  className: string;
+  className?: string;
+  animationClass: string;
 }
 
-const InView = ({ children, className }: InViewProps) => {
+const InView = ({ children, className, animationClass }: InViewProps) => {
   const ref = useRef<HTMLSpanElement>(null);
 
   const [isInView, setIsInView] = useState(false);
@@ -27,10 +28,12 @@ const InView = ({ children, className }: InViewProps) => {
   });
 
   return (
-    <span ref={ref}>
+    <span className={className} ref={ref}>
       {Children.map(children, (child) => {
         return React.cloneElement(child, {
-          className: `${child.props.className} ${isInView ? className : ""}`,
+          className: `${child.props.className} ${
+            isInView ? animationClass : ""
+          }`,
         });
       })}
     </span>

@@ -36,7 +36,7 @@ const Home = () => {
     <Element name="home" className={styles.section}>
       <div className={styles.home}>
         <div className={styles.imgContainer}>
-          <InView className={styles.fromBlur}>
+          <InView animationClass={styles.fromBlur}>
             <img
               className={styles.img}
               src="./portfolio_2_sm.webp"

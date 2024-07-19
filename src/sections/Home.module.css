@@ -14,7 +14,6 @@
 }
 
 .home {
-  /* padding-top: 4rem; */
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -33,7 +32,6 @@
   z-index: 1;
   mix-blend-mode: difference;
   filter: drop-shadow(0 0 8rem rgb(177, 66, 66)) blur(1rem);
-  /* animation: shadowPulse 10s infinite ease; */
 }
 
 .fromBlur {
@@ -78,19 +76,14 @@
   border-radius: 9999px;
 }
 
+.tailwindIcon {
+  color: rgb(56, 189, 248);
+}
+
 .icon {
   left: 40%;
   transform: translateX(10rem) rotateY(70deg) scale(0.6);
   opacity: 0;
-  position: absolute;
-  animation-name: slide;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.tailwindIcon {
-  color: rgb(56, 189, 248);
   position: absolute;
   animation-name: slide;
   animation-duration: 10s;
@@ -111,19 +104,16 @@
 
 .title {
   font-size: large;
-  /* font-size: 2.2rem; */
   color: rgb(255, 255, 255);
 }
 
 .fullName {
   font-size: xx-large;
-  /* font-size: 4.5rem; */
   color: rgb(177, 66, 66);
 }
 
 .profession {
   font-size: large;
-  /* font-size: 2.2rem; */
   margin-bottom: 2rem;
 }
 
@@ -201,7 +191,6 @@
     max-width: 100%;
     left: 50%;
     max-height: 100%;
-    /* height: 100%; */
     transform: translateX(-50%);
     opacity: 0.8;
   }

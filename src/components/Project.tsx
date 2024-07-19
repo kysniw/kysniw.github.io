@@ -20,7 +20,7 @@ const Project = ({ project }: { project: ProjectProps }) => {
   const { lang } = useLangContext();
 
   return (
-    <InView className={styles.slideFromBottom}>
+    <InView animationClass={styles.slideFromBottom}>
       <div className={styles.project}>
         <img
           className={styles.img}

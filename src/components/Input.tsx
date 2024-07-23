@@ -6,6 +6,7 @@ import { useLangContext } from "../context/LangContext";
 import { contactData } from "../lib/data";
 
 type InputProps = {
+  className?: string;
   textarea?: boolean;
   type?: string;
   fieldName: FormDataElements;
@@ -18,6 +19,7 @@ type InputProps = {
 };
 
 const Input = ({
+  className,
   textarea,
   type,
   fieldName,
@@ -39,7 +41,7 @@ const Input = ({
           <input
             className={`${styles.input} ${
               errors[fieldName] && styles.fieldError
-            }`}
+            } ${className}`}
             placeholder={texts.placeholder[fieldName][lang]}
             type={type ? type : "text"}
             {...register(fieldName, {
@@ -69,7 +71,7 @@ const Input = ({
           <textarea
             className={`${styles.textarea} ${
               errors.message && styles.fieldError
-            }`}
+            } ${className}`}
             placeholder={texts.placeholder[fieldName][lang]}
             rows={7}
             {...register(fieldName, {

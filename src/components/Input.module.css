@@ -4,6 +4,7 @@
 
 .input,
 .textarea {
+  opacity: 0;
   display: block;
   background-color: rgb(0, 54, 66);
   width: 100%;
@@ -36,8 +37,9 @@
   color: red;
   text-align: left;
 }
-@media (min-width: 768px) {
+
+/* @media (min-width: 768px) {
   .inputDiv {
     width: 49%;
   }
-}
+} */

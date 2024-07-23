@@ -66,20 +66,31 @@ const Home = () => {
           </div>
         </div>
         <div className={styles.textContainer}>
-          <h1 className={styles.title}>{text.title[lang]}</h1>
-          <h3 className={styles.fullName}>Jakub Winsyk</h3>
-          <h2 className={styles.profession}>Fullstack Developer</h2>
-          <a
-            className={styles.download}
-            href={`./jw_cv_${lang}.pdf`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            {text.download[lang]}
-          </a>
+          <InView animationClass={styles.titleAnimation}>
+            <h1 className={styles.title}>{text.title[lang]}</h1>
+          </InView>
+          <InView animationClass={styles.fullNameAnimation}>
+            <h3 className={styles.fullName}>Jakub Winsyk</h3>
+          </InView>
+          <InView animationClass={styles.professionAnimation}>
+            <h2 className={styles.profession}>Fullstack Developer</h2>
+          </InView>
+          <InView animationClass={styles.downloadAnimation}>
+            <a
+              className={styles.download}
+              href={`./jw_cv_${lang}.pdf`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {text.download[lang]}
+            </a>
+          </InView>
 
           <div className={styles.socialMedia}>
-            <InView animationClass={styles.mediaIconAnimation}>
+            <InView
+              style={{ animationDelay: "0.3s" }}
+              animationClass={styles.mediaIconAnimation}
+            >
               <a
                 href="https://www.facebook.com/kysniw"
                 rel="noreferrer"
@@ -90,7 +101,7 @@ const Home = () => {
               </a>
             </InView>
             <InView
-              style={{ animationDelay: "0.3s" }}
+              style={{ animationDelay: "0.6s" }}
               animationClass={styles.mediaIconAnimation}
             >
               <a
@@ -103,7 +114,7 @@ const Home = () => {
               </a>
             </InView>
             <InView
-              style={{ animationDelay: "0.6s" }}
+              style={{ animationDelay: "0.9s" }}
               animationClass={styles.mediaIconAnimation}
             >
               <a
@@ -116,7 +127,7 @@ const Home = () => {
               </a>
             </InView>
             <InView
-              style={{ animationDelay: "0.9s" }}
+              style={{ animationDelay: "1.2s" }}
               animationClass={styles.mediaIconAnimation}
             >
               <a

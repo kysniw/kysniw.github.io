@@ -103,21 +103,37 @@
 }
 
 .title {
+  opacity: 0;
   font-size: large;
   color: rgb(255, 255, 255);
 }
 
+.titleAnimation {
+  animation-name: slideFromLeft;
+}
+
 .fullName {
+  opacity: 0;
   font-size: xx-large;
   color: rgb(177, 66, 66);
 }
 
+.fullNameAnimation {
+  animation-name: fadeIn;
+}
+
 .profession {
+  opacity: 0;
   font-size: large;
   margin-bottom: 2rem;
 }
 
+.professionAnimation {
+  animation-name: slideFromRight;
+}
+
 .download {
+  opacity: 0;
   display: block;
   text-shadow: none;
   text-decoration: none;
@@ -133,6 +149,19 @@
 
 .download:hover {
   box-shadow: none;
+}
+
+.downloadAnimation {
+  animation-name: fadeIn;
+}
+
+.titleAnimation,
+.fullNameAnimation,
+.professionAnimation,
+.downloadAnimation {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 
 .socialMedia {

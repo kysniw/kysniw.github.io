@@ -21,7 +21,7 @@
 }
 
 .slideFromLeft {
-  animation: slideFromLeft 1s forwards 0.5s;
+  animation: slideFromLeft 1s forwards;
 }
 
 @keyframes slideFromLeft {

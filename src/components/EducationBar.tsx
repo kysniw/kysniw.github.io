@@ -3,6 +3,7 @@ import styles from "./EducationBar.module.css";
 import { FaLocationPin } from "react-icons/fa6";
 import { EducationBarProps } from "../lib/types";
 import { useLangContext } from "../context/LangContext";
+import InView from "./InView";
 
 const EducationBar = ({
   educationBar,
@@ -12,7 +13,11 @@ const EducationBar = ({
   const { lang } = useLangContext();
 
   return (
-    <div className={styles.educationSpace}>
+    <InView
+      className={styles.educationSpace}
+      animationClass={styles.educationSpaceAnimation}
+      animateSelf
+    >
       <div className={styles.educationBar}>
         <div className={styles.barHeader}>
           <h1>{educationBar.period}</h1>
@@ -27,7 +32,7 @@ const EducationBar = ({
           </p>
         </div>
       </div>
-    </div>
+    </InView>
   );
 };
 

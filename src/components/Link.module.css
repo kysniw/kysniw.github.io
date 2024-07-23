@@ -23,6 +23,7 @@
   .active {
     border-color: #b14242;
     color: #fff;
+    box-shadow: 0 0 8px #b14242, 0 0 6px #b14242 inset;
   }
 
   .active:hover {

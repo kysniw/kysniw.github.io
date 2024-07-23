@@ -8,6 +8,7 @@ import { useLangContext } from "../context/LangContext";
 import { FormDataProps } from "../lib/types";
 import { useForm } from "react-hook-form";
 import Input from "../components/Input";
+import InView from "../components/InView";
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -77,61 +78,87 @@ const Contact = () => {
 
   return (
     <Element name="contact" className={styles.section}>
-      <h1 className={styles.title}>{texts.title[lang]}</h1>
+      <InView animationClass={styles.titleAnimation}>
+        <h1 className={styles.title}>{texts.title[lang]}</h1>
+      </InView>
       <form className={styles.form} onSubmit={onSubmit}>
         <div className={styles.inputBox}>
-          <Input
-            fieldName="fullName"
-            required
-            pattern={/[a-zA-Z]{3,16}([ ][a-zA-Z]{3,16})?$/g}
-            minLength={4}
-            maxLength={30}
-            register={register}
-            errors={errors}
-          />
-          <Input
-            fieldName="email"
-            required
-            pattern={/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g}
-            register={register}
-            errors={errors}
-          />
+          <InView
+            animationClass={styles.inputAnimationRight}
+            className={styles.inputDiv}
+          >
+            <Input
+              fieldName="fullName"
+              required
+              pattern={/[a-zA-Z]{3,16}([ ][a-zA-Z]{3,16})?$/g}
+              minLength={4}
+              maxLength={30}
+              register={register}
+              errors={errors}
+            />
+          </InView>
+          <InView
+            animationClass={styles.inputAnimationLeft}
+            className={styles.inputDiv}
+          >
+            <Input
+              fieldName="email"
+              required
+              pattern={/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g}
+              register={register}
+              errors={errors}
+            />
+          </InView>
         </div>
         <div className={styles.inputBox}>
-          <Input
-            type="tel"
-            fieldName="phoneNumber"
-            pattern={/[+0-9]?([0-9]{9,12})$/g}
-            minLength={9}
-            maxLength={13}
-            register={register}
-            errors={errors}
-          />
-          <Input
-            fieldName="subject"
-            required
-            minLength={5}
-            maxLength={30}
-            register={register}
-            errors={errors}
-          />
+          <InView
+            animationClass={styles.inputAnimationRight}
+            className={styles.inputDiv}
+          >
+            <Input
+              type="tel"
+              fieldName="phoneNumber"
+              pattern={/[+0-9]?([0-9]{9,12})$/g}
+              minLength={9}
+              maxLength={13}
+              register={register}
+              errors={errors}
+            />
+          </InView>
+          <InView
+            animationClass={styles.inputAnimationLeft}
+            className={styles.inputDiv}
+          >
+            <Input
+              fieldName="subject"
+              required
+              minLength={5}
+              maxLength={30}
+              register={register}
+              errors={errors}
+            />
+          </InView>
         </div>
-        <Input
-          textarea
-          fieldName="message"
-          required
-          minLength={20}
-          maxLength={400}
-          register={register}
-          errors={errors}
-        />
-        <button className={styles.submit} type="submit" disabled={isLoading}>
-          {isLoading ? (
-            <FaCircleNotch className={styles.loadingIcon} />
-          ) : (
-            texts.sendButton[lang]
-          )}
-        </button>
+        <InView animationClass={styles.textareaAnimation}>
+          <Input
+            textarea
+            fieldName="message"
+            required
+            minLength={20}
+            maxLength={400}
+            register={register}
+            errors={errors}
+          />
+        </InView>
+        <InView animationClass={styles.submitAnimation}>
+          <button className={styles.submit} type="submit" disabled={isLoading}>
+            {isLoading ? (
+              <FaCircleNotch className={styles.loadingIcon} />
+            ) : (
+              texts.sendButton[lang]
+            )}
+          </button>
+        </InView>
         {status.message && (
           <div className={styles.success}>
             <p>{texts.statusSuccess[lang]}</p>

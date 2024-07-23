@@ -5,9 +5,17 @@
 }
 
 .title {
+  opacity: 0;
   text-align: center;
   font-size: 3rem;
   margin-bottom: 3rem;
+}
+
+.titleAnimation {
+  animation-name: slideFromTop;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 
 .form {
@@ -16,53 +24,39 @@
   text-align: center;
 }
 
-.inputDiv {
-  width: 100%;
-}
-
-.input,
-.textarea {
-  display: block;
-  background-color: rgb(0, 54, 66);
-  width: 100%;
-  color: rgb(255, 255, 255);
-  font-size: medium;
-  font-weight: normal;
-  padding: 0.8rem;
-  border-radius: 0.5rem;
-  border: 0.2rem solid transparent;
-  margin: 0.3rem 0;
-  outline: none;
-}
-
 .inputBox {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.textarea {
-  resize: none;
+.inputDiv {
+  width: 100%;
 }
 
-.input:focus,
-.textarea:focus {
-  border-color: rgb(255, 255, 255);
-  /* border-color: rgb(177, 66, 66); */
+.inputAnimationLeft {
+  animation-name: slideFromLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 
-.fieldError,
-.fieldError:focus {
-  border-color: red;
+.inputAnimationRight {
+  animation-name: slideFromRight;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 
-.input + p,
-.textarea + p {
-  color: red;
-  text-align: left;
+.textareaAnimation {
+  animation-name: slideFromBottom;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 
 .submit {
+  opacity: 0;
   display: block;
   text-decoration: none;
   background-color: rgb(177, 66, 66);
@@ -87,6 +81,14 @@
   background-color: rgb(151, 57, 57);
   box-shadow: none;
   cursor: default;
+}
+
+.submitAnimation {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-delay: 0.5s;
 }
 
 .loadingIcon {
@@ -173,5 +175,64 @@
   }
   100% {
     transform: rotateZ(360deg);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0);
+  }
+  50% {
+    transform: translateY(-10px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

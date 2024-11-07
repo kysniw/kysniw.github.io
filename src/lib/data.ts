@@ -37,13 +37,13 @@ export const aboutData = {
     },
     desc: {
       pl:
-        "Cześć! Jestem absolwentem Politechniki Wrocławskiej, na której udało mi się uzyskać stopień magistra " +
+        "Cześć! Jestem absolwentem Politechniki Wrocławskiej, na której uzyskałem stopień magistra " +
         "inżyniera z\u00A0Informatyki Stosowanej. Podczas studiów drugiego stopnia zawuażyłem, że najbardziej podoba mi się " +
         "programowanie w\u00A0ReactJS. Stowrzyliśmy wtedy projekt w\u00A0ReactNative na zaliczenie przedmiotu. Z\u00A0drugiej strony " +
-        "koledzy wciągneli mnie w Pythona. Dzięki temu napisałem magisterkę związaną z\u00A0uczeniem maszynowym i\u00A0jego możliwym " +
+        "koledzy wciągneli mnie w\u00A0Pythona. Dzięki temu napisałem magisterkę związaną z\u00A0uczeniem maszynowym i\u00A0jego możliwym " +
         "zastosowaniem w\u00A0infrastrukturze kolejowej. Zacząłem również uczyć się Django i\u00A0jego REST framework. Po studiach " +
         "poszedłem na studia podyplomowe z\u00A0Angulara oraz ReactJS, co pozwoliło mi utwierdzić się w\u00A0zamiłowaniu do React'a.\n" +
-        "W wolnych chwilach bardzo lubię majsterkować przy samochodzie, składać i\u00A0naprawiać komputery, grać w\u00A0gry wideo oraz " +
+        "W\u00A0wolnych chwilach bardzo lubię majsterkować przy samochodzie, składać i\u00A0naprawiać komputery, grać w\u00A0gry wideo oraz " +
         "rozszerzać moją największą pasję jaką jest kolej.",
       en:
         "Hi! I'm a graduate of Computer Science at Wroclaw University of Technology. During second-level studies, " +
